@@ -1,0 +1,15 @@
+.imgCarrito {
+    width: 4.5rem;
+}
+
+.numeroCarrito {
+    border-radius: 50%;
+    padding: 0.3rem;
+    margin-left: 0.5rem;
+    color: #ffffffd5;
+}
+
+.btnCarrito {
+    padding: 0 2rem;
+    cursor: pointer;
+}
