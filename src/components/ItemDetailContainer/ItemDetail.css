@@ -1,0 +1,11 @@
+.contenedorItem {
+    text-align: center;
+    border: 1px solid #e3e1e1;
+    margin: 10rem;
+    color: azure;
+    padding: 5rem;
+}
+
+img {
+    width: 20vw;
+}

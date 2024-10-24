@@ -1,8 +1,29 @@
 import './ItemListContainer.css'
+import { useState, useEffect } from 'react'
+import { getProductos, getProductosPorCategoria } from '../../data'
+import ItemList from './ItemList'
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({ greeting }) => {
+  const [productos, setProductos] = useState([]);
+
+  const { idCategoria } = useParams();
+
+  useEffect(() => {
+
+    const funcionProductos = idCategoria ? getProductosPorCategoria : getProductos
+
+    funcionProductos(idCategoria)
+      .then(res => setProductos(res))
+      .catch(error => console.error(error))
+
+  }, [idCategoria])
   return (
-    <h2 className="ItemsContainer"> {greeting} </h2>
+    <div>
+      <h2 className="ItemsContainer"> {greeting} </h2>
+      <h3 className='ItemsContainerProductos' >Productos</h3>
+      <ItemList productos={productos} />
+    </div>
   )
 }
 
